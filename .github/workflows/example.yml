@@ -1,0 +1,11 @@
+on:
+  push:
+jobs:
+  test:
+    runs-on: ubuntu-22.04
+    steps:
+      - run: touch a
+      - run: git status --porcelain
+        id: status
+      - run: echo "status: ${{ steps.status.outputs.stdout }}"
+      
