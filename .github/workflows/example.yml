@@ -7,7 +7,6 @@ jobs:
       - name: Get Codebase
         uses: actions/checkout@v3
       - run: touch a
-      - run: git status --porcelain
-        id: status
-      - run: "echo status: ${{ steps.status.outputs.stdout }}"
+      - run: GIT_STATUS=$(git status --porcelain) >> "$GITHUB_OUTPUT"
+      - run: echo "$GIT_STATUS"
       
