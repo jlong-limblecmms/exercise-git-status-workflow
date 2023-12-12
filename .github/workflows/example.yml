@@ -7,5 +7,5 @@ jobs:
       - run: touch a
       - run: git status --porcelain
         id: status
-      - run: echo "status: ${{ steps.status.outputs.stdout }}"
+      - run: "echo status: ${{ steps.status.outputs.stdout }}"
       
