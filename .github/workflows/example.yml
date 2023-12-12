@@ -9,5 +9,6 @@ jobs:
       - run: touch a
       - run: echo GIT_STATUS=$(git status --porcelain) >> "$GITHUB_OUTPUT"
         id: git_status
-      - run: echo ${{ steps.git_status.outputs.GIT_STATUS }}
-      
+      - name: Run tests if status is not empty
+        if: steps.git_status.outputs.GIT_STATUS != ''
+        run: echo "Run tests"
